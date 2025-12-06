@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Containerized Express Static Server</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-color: #f4f4f9;
+        }
+        .container {
+            padding: 40px;
+            border: 2px solid #2ecc71;
+            border-radius: 8px;
+            display: inline-block;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        p {
+            color: #34495e;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Success!</h1>
+        <p>This content is being served by the **Express server** running inside your **Docker container**.</p>
+        <p>The `server.js` file is serving this file from the **`public`** directory.</p>
+        <p>Port mapping: Host Port 80 $\rightarrow$ Container Port 8080</p>
+    </div>
+</body>
+</html>

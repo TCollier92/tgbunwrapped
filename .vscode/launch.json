@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Express Server",
+      
+      // 1. Program to execute: This points to your main file.
+      "program": "${workspaceFolder}/server.js",
+      
+      // 2. Current working directory: The root of the project, inside the container.
+      "cwd": "${workspaceFolder}",
+      
+      // 3. Environment variables: Use the default port from server.js
+      "env": {
+        "PORT": "8080"
+      },
+
+      // 4. Restart on file changes: Good for development
+      "restart": true,
+      
+      // 5. Skip Node's internal modules during debugging
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      
+      // The default launch method for Node.js
+      "runtimeExecutable": "node"
+    }
+  ]
+}

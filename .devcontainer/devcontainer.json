@@ -1,0 +1,41 @@
+{
+    // The name for the dev container
+    "name": "Express Static Server (Node.js)",
+    // **Option 1: Build the container using the existing Dockerfile**
+    // This uses the 'build' property to point to the Dockerfile in the current directory.
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    // **Option 2: (Alternative) Use a pre-built image**
+    // If you had already built and pushed your image (e.g., my-registry/static-express-app:latest), 
+    // you could use the "image" property instead of "build".
+    // "image": "static-express-app:latest",
+    // Forward the container port (8080) to the local host port (8080 or the first available)
+    // This allows you to access the web server running inside the container via localhost.
+    "forwardPorts": [
+        8080
+    ],
+    // Mount the current workspace folder into the container at the working directory (/usr/src/app)
+    // This is usually done automatically, but explicitly confirming it here.
+    "workspaceFolder": "/usr/src/app",
+    // Post-create command: Run npm install to ensure all dependencies are fresh after build
+    // This is technically redundant if you use 'npm install' in the Dockerfile, 
+    // but it's a good practice to ensure the mounted volume has up-to-date node_modules.
+    "postCreateCommand": "npm install",
+    // Configure common settings for the container environment
+    // Specify extensions that should be installed in the container
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "ms-vscode.js-debug-nightly",
+                "Google.geminicodeassist"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    }
+}
