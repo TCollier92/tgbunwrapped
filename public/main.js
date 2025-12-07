@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // "Unlock" audio playback by playing and pausing all audio elements
         audios.forEach(audio => {
             const promise = audio.play();
+            console.log(promise);
             if (promise !== undefined) {
                 promise.then(() => {
                     audio.pause();
