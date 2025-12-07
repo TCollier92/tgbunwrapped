@@ -12,20 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
     slideshowContainer.style.scrollSnapType = 'none';
 
     startButton.addEventListener('click', () => {
-        var audio = document.querySelector('#silenceAudio')
+        var audio = document.querySelector('#silenceAudio');
         // "Unlock" audio playback by playing and pausing all audio elements
-        audios.forEach(audio => {
-            const promise = audio.play();
-            console.log(promise);
-            if (promise !== undefined) {
-                promise.then(() => {
-                    audio.pause();
-                    audio.currentTime = 0;
-                }).catch(error => {
-                    console.error("Audio playback failed:", error);
-                });
-            }
-        });
+        const promise = audio.play();
+        console.log(promise);
+        if (promise !== undefined) {
+            promise.then(() => {
+                audio.pause();
+                audio.currentTime = 0;
+            }).catch(error => {
+                console.error("Audio playback failed:", error);
+            });
+        }
 
         // Re-enable scroll snapping and start the slideshow
         slideshowContainer.style.overflowY = 'scroll';
