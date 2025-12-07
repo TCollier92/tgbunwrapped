@@ -17,6 +17,12 @@ const staticPath = 'public';
 // For example, public/index.html will be accessible at http://localhost:8080/index.html
 app.use(express.static(staticPath));
 
+// Add a dedicated health check route that the platform can use.
+// This route will always respond with a 200 OK status if the server is running.
+app.get('/_health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // Start the server and listen on the defined port
 app.listen(PORT, () => {
   console.log(`✅ Static web server is running on port ${PORT}`);
