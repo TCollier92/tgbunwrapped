@@ -20,9 +20,37 @@ body, html {
     scroll-behavior: smooth;
 }
 
+/* New container for background elements */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Place it behind the slide content */
+}
+
+.background-gif {
+    opacity: 0; /* Hidden by default using opacity */
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This is the key property */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s; /* Add fade transition */
+}
+
 /* A small animated indicator to prompt the user to scroll */
 .scroll-indicator {
-    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite, fadeIn 1s ease-in;
+    z-index: 10;
+    text-align: center;
 }
 
 .scroll-indicator p {
@@ -76,8 +104,12 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 2rem; /* Keep padding for content spacing */
+    background-color: rgba(18, 18, 18, 0.75); /* Translucent background for readability */
+    backdrop-filter: blur(10px); /* Optional: blur the background for a frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
     box-sizing: border-box;
+    position: relative; /* This is the fix! */
 }
 
 .slide > div {
@@ -105,24 +137,23 @@ audio {
     left: -9999px !important;
 }
 
-/* Distinct backgrounds for each slide so they look separate */
-#slide1 {
-    background: linear-gradient(180deg, #071028 0%, #0b1220 100%);
+/* Remove the opaque gradient backgrounds */
+.slide {
+    background: transparent;
 }
 
-#slide2 {
-    background: linear-gradient(180deg, #081426 0%, #0f2436 100%);
-}
-
-#slide3 {
-    background: linear-gradient(180deg, #102218 0%, #0b2a1b 100%);
-}
-
-#slide4 {
-    background: linear-gradient(180deg, #1b0f20 0%, #0f0910 100%);
+#slide1 > div {
+    background-color: rgba(18, 18, 18, 0.75);
+    padding: 2rem;
+    border-radius: 1rem;
 }
 
 /* Improve start button placement on the first slide */
 #slide1 #start-button {
     margin-top: 1.5rem;
+}
+
+/* Hide scroll indicator on the last slide */
+.slide:last-child .scroll-indicator {
+    display: none;
 }
