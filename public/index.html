@@ -3,37 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Containerized Express Static Server</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 20px;
-            text-align: center;
-            background-color: #f4f4f9;
-        }
-        .container {
-            padding: 40px;
-            border: 2px solid #2ecc71;
-            border-radius: 8px;
-            display: inline-block;
-            background-color: #ffffff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        p {
-            color: #34495e;
-            font-size: 1.1em;
-        }
-    </style>
+    <title>Your 2025 Unwrapped</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>✅ Success!</h1>
-        <p>This content is being served by the **Express server** running inside your **Docker container**.</p>
-        <p>The `server.js` file is serving this file from the **`public`** directory.</p>
-        <p>Port mapping: Host Port 80 $\rightarrow$ Container Port 8080</p>
-    </div>
+
+    <main class="slideshow-container">
+
+        <section class="slide" id="slide1">
+            <div>
+                <h1>2025 Unwrapped</h1>
+                <p>A look back at your year in sound.</p>
+                <button id="start-button">Start</button>
+            </div>
+        </section>
+
+        <section class="slide" id="slide2">
+            <div>
+                <h1>You were a creature of habit.</h1>
+                <p>You listened to <strong>Sound 1</strong> a lot. Like, a whole lot.</p>
+                <audio id="audio1" src="sound1.mp3" aria-label="Sound 1"></audio>
+            </div>
+        </section>
+
+        <section class="slide" id="slide3">
+            <div>
+                <h1>But you explored new things.</h1>
+                <p>Remember that one time you played <strong>Sound 2</strong>?</p>
+                <audio id="audio2" src="sound2.mp3" aria-label="Sound 2"></audio>
+            </div>
+        </section>
+
+        <section class="slide" id="slide4">
+            <div>
+                <h1>Cheers to 2026!</h1>
+                <p>Thanks for listening with us. See you next year.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="main.js"></script>
 </body>
 </html>
