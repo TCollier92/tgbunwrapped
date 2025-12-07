@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (promise !== undefined) {
                 promise.then(() => {
                     audio.pause();
+                    audio.currentTime = 0;
                 }).catch(error => {
                     console.error("Audio playback failed:", error);
                 });
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if(prevAudioEl)
                         {
                             prevAudioEl.pause();
+                            prevAudioEl.currentTime = 0;
                         }
                     }
                     // Set the new audio, loop it, and play it
