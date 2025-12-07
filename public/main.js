@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slideshowContainer.style.scrollSnapType = 'none';
 
     startButton.addEventListener('click', () => {
+        var audio = document.querySelector('#silenceAudio')
         // "Unlock" audio playback by playing and pausing all audio elements
         audios.forEach(audio => {
             const promise = audio.play();
@@ -51,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         if(prevAudioEl)
                         {
                             prevAudioEl.pause();
-                            prevAudioEl.currentTime = 0;
                         }
                     }
                     // Set the new audio, loop it, and play it
